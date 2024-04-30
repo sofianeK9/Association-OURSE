@@ -13,7 +13,7 @@ inscription();
 </head>
 
 <body>
-  <form method="POST">
+  <form method="post">
     <h2>Ajout de compte</h2>
 
     <label for="nom">Nom</label>
