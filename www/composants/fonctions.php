@@ -145,23 +145,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 function suppression()
 {
 
-    // Vérifier si un identifiant d'utilisateur à supprimer a été fourni
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id'])) {
         $userId = $_POST['id'];
 
-        // Lire le fichier JSON des utilisateurs
         $json_data = file_get_contents('../../donnees/utilisateurs.json');
         $users = json_decode($json_data, true);
 
-        // Vérifier si l'ID utilisateur existe dans le tableau
         if (isset($users[$userId])) {
-            // Supprimer l'utilisateur avec cet ID
             unset($users[$userId]);
 
-            // Enregistrer les modifications dans le fichier JSON
             file_put_contents('../../donnees/utilisateurs.json', json_encode($users));
 
-            // Redirection vers la page de liste des utilisateurs après la suppression
             header("Location: listeUtilisateurs.php");
             exit;
         } else {
