@@ -1,18 +1,9 @@
-<?php require_once '../composants/fonctions.php';
-inscription();
-?>
+<?php 
+$page ="inscription";
+require_once '../composants/enTete.php'; ?>
 
-
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Formulaire d'ajout de compte</title>
-</head>
-
-<body>
+    <h1><?= $page ?></h1>
+    
   <form method="post">
     <h2>Ajout de compte</h2>
 
