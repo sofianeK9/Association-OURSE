@@ -1,34 +1,34 @@
 <?php 
-
 require_once '../composants/fonctions.php';
 inscription();
 
-$page ="inscription";
+$page ="Inscription";
 require_once '../composants/enTete.php';
 ?>
 
-    <h1><?= $page ?></h1>
-    
-  <form method="post">
+<form method="post">
     <h2>Ajout de compte</h2>
 
     <label for="nom">Nom</label>
-    <input type="text" id="nom" name="nom" />
+    <input type="text" id="nom" name="nom" required />
 
     <label for="prenom">Prénom</label>
-    <input type="text" id="prenom" name="prenom" />
+    <input type="text" id="prenom" name="prenom" required />
 
     <label for="email">Email</label>
-    <input type="text" id="email" name="email" />
+    <input type="email" id="email" name="email" required />
+
+    <label for="role">Role</label>
+    <select name="role" id="role" required>
+        <option value="ROLE_USER">Utilisateur</option>
+        <option value="ROLE_ADMIN">Administrateur</option>
+    </select>
 
     <label for="mot_de_passe">Mot de passe</label>
-    <input type="password" id="mot_de_passe" name="mot_de_passe" />
+    <input type="password" id="mot_de_passe" name="mot_de_passe" required />
 
-    <label for="mot_de_passe_verification">Verifier le mot passe</label>
-    <input type="password" id="mot_de_passe_verification" name="mot_de_passe_verification" />
+    <label for="mot_de_passe_verification">Vérifier le mot de passe</label>
+    <input type="password" id="mot_de_passe_verification" name="mot_de_passe_verification" required />
 
-    <input type="submit" value="ajouter">
-  </form>
-</body>
-
-</html>
+    <input type="submit" value="Ajouter">
+</form>

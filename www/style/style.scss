@@ -61,3 +61,88 @@ body {
 .dropdown-content a:hover {
     background-color: #ddd;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Style général du formulaire */
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 20px;
+    background-color: #DFDF8A;
+
+    h2 {
+        text-transform: uppercase;
+        font-size: 1.4em;
+        text-align: center;
+    }
+
+    &.suppression-button {
+        background-color: rgb(255, 146, 146);
+        padding: 0;
+
+        button {
+            background-color: transparent;
+        }
+      }
+  }
+  
+  /* Style des champs de formulaire */
+  input[type="text"],
+  input[type="email"],
+  input[type="time"],
+  input[type="password"],
+  input[type="file"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: white;
+  }
+  
+  /* Style des boutons */
+  input[type="submit"],
+  button {
+    padding: 14px 20px;
+    margin: 8px 0;
+    background-color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition-property: background-color;
+    transition-duration: 0.5s;
+  }
+  
+  /* Style des boutons au survol */
+  input[type="submit"]:hover,
+  button:hover {
+    background-color: rgb(228, 228, 228);
+  }
+  
