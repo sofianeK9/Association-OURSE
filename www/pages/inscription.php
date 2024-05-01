@@ -1,6 +1,11 @@
 <?php 
+
+require_once '../composants/fonctions.php';
+inscription();
+
 $page ="inscription";
-require_once '../composants/enTete.php'; ?>
+require_once '../composants/enTete.php';
+?>
 
     <h1><?= $page ?></h1>
     

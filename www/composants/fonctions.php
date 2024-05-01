@@ -106,39 +106,70 @@ function genererMotDePasse($longueur = 8)
     return $motDePasse;
 }
 
+
+// Fonction pour mettre à jour le mot de passe dans le fichier JSON
+function updatePassword($email, $newPassword) {
+    $data = file_get_contents('users.json');
+    $users = json_decode($data, true);
+
+    // Recherche de l'utilisateur par son email
+    foreach ($users as &$user) {
+        if ($user['email'] === $email) {
+            $user['password'] = password_hash($newPassword, PASSWORD_DEFAULT);
+            break;
+        }
+    }
+
+    // Écriture des données mises à jour dans le fichier JSON
+    file_put_contents('users.json', json_encode($users, JSON_PRETTY_PRINT));
+}
+
+
+
 // Fonction pour envoyer un e-mail avec le nouveau mot de passe
-function envoyerEmail($destinataire, $nouveauMotDePasse)
+function envoyerEmail($to, $subject, $message)
 {
-    // Sujet de l'e-mail
-    $sujet = 'Mot de passe oublié';
+    // Adresse email de l'expéditeur
+    $from = "votre@email.com";
 
-    // Message de l'e-mail
-    $message = 'Bonjour, voici votre nouveau mot de passe : ' . $nouveauMotDePasse;
+    // En-têtes de l'email
+    $headers = "From: $from" . "\r\n";
+    $headers .= "Reply-To: $from" . "\r\n";
+    $headers .= "Content-type: text/html; charset=UTF-8" . "\r\n";
 
-    // En-têtes de l'e-mail
-    $headers = "Content-Type: text/plain; charset=UTF-8\r\n";
-
-    // Envoyer l'e-mail
-    if (mail($destinataire, $sujet, $message, $headers)) {
-        return true; // Succès de l'envoi de l'e-mail
+    // Envoi de l'email
+    if (mail($to, $subject, $message, $headers)) {
+        echo "Email envoyé avec succès.";
     } else {
-        return false; // Échec de l'envoi de l'e-mail
+        echo "Erreur lors de l'envoi de l'email.";
     }
 }
 
-// Vérifier si le formulaire a été soumis
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Récupérer l'adresse e-mail du formulaire
-    $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
+function envoyerNouveauMotDePasse($email, $nouveauMotDePasse)
+{
+    // Votre adresse email expéditeur
+    $from = "votre@email.com";
 
-    // Générer un nouveau mot de passe sécurisé
-    $nouveauMotDePasse = genererMotDePasse();
+    // Sujet de l'email
+    $subject = "Nouveau mot de passe";
 
-    // Envoyer l'e-mail avec le nouveau mot de passe
-    if (envoyerEmail($email, $nouveauMotDePasse)) {
-        echo "Un e-mail a été envoyé à votre adresse e-mail avec votre nouveau mot de passe.";
+    // Contenu de l'email
+    $message = "Bonjour,\r\n\r\n";
+    $message .= "Vous avez demandé un nouveau mot de passe. Voici votre nouveau mot de passe :\r\n";
+    $message .= $nouveauMotDePasse . "\r\n\r\n";
+    $message .= "Nous vous recommandons de changer votre mot de passe après vous être connecté.\r\n\r\n";
+    $message .= "Cordialement,\r\nVotre équipe";
+
+    // En-têtes de l'email
+    $headers = "From: $from" . "\r\n";
+    $headers .= "Reply-To: $from" . "\r\n";
+    $headers .= "Content-type: text/plain; charset=UTF-8" . "\r\n";
+
+    // Envoi de l'email
+    if (mail($email, $subject, $message, $headers)) {
+        return true; // Email envoyé avec succès
     } else {
-        echo "Une erreur s'est produite lors de l'envoi de l'e-mail.";
+        return false; // Erreur lors de l'envoi de l'email
     }
 }
 
