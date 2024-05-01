@@ -97,12 +97,18 @@ form {
         text-align: center;
     }
 
-    &.suppression-button {
+    &.suppression-button,
+    &.deconnexion {
         background-color: rgb(255, 146, 146);
         padding: 0;
-
+        transition-property: background-color;
+        transition-duration: 0.5s;
         button {
             background-color: transparent;
+            font-size: 0.8em;
+        }
+        &:hover {
+            background-color: rgb(247, 176, 176);
         }
       }
   }

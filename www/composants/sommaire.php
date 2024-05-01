@@ -31,7 +31,7 @@ if (isset($_POST['deconnexion'])) {
             <a href="../pages/profil.php">Profil</a>
             <a href="../pages/listeUtilisateurs.php">Liste des utilisateurs</a>
             <a href="../pages/actualites.php">Ajouter une actualité</a>
-            <form method="post" action="">
+            <form method="post" action="" class="deconnexion">
                 <button type="submit" name="deconnexion">Déconnexion</button>
             </form>
                 </div>
