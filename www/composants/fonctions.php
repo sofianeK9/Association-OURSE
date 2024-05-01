@@ -230,15 +230,39 @@ function modificationProfil()
     }
 }
 
-function ajoutActualites() {
-    if($_SERVER["REQUEST_METHOD"] == "POST") {
-
+function ajoutActualites()
+{
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $titre = $_POST['titre'];
         $image = $_POST['image'];
-        $description = $_POST['$description'];
+        $description = $_POST['description'];
         $date = $_POST['date'];
         $moment = $_POST['moment'];
-        $heure = $_POST['heure'];
+        $heure = isset($_POST['heure']) ? $_POST['heure'] : null;
+        $ville = $_POST['ville'];
+        $lien = $_POST['lien'];
+
+        
+        $actualite = [
+            'titre' => $titre,
+            'image' => $image,
+            'description' => $description,
+            'date' => $date,
+            'moment' => $moment,
+            'heure' => $heure,
+            'ville' => $ville,
+            'lien' => $lien
+        ];
+
+        $actualites = file_exists("../../donnees/fichiers.json") ? json_decode(file_get_contents("../../donnees/fichiers.json"), true) : [];
+
+        $actualites[] = $actualite;
+
+        file_put_contents("../../donnees/fichiers.json", json_encode($actualites, JSON_PRETTY_PRINT));
+
+        
+        echo "L'actualité a été ajoutée avec succès.";
+        // header("Location: page-de-redirection.php");
     }
-}   
+}

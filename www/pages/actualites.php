@@ -1,6 +1,6 @@
 <?php
 require_once '../composants/fonctions.php';
-
+ajoutActualites();
 require_once '../composants/enTete.php';
 
 ?>
