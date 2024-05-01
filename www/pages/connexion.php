@@ -1,6 +1,9 @@
 <?php 
 $page ="connexion";
-require_once '../composants/enTete.php'; ?>
+require_once '../composants/enTete.php';
+require_once '../composants/fonctions.php' ;
+connexion();
+?>
 
     <h1><?= $page ?></h1>
     

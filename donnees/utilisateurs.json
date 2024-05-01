@@ -1,1 +1,1 @@
-[{"id":0,"nom":"tacite","prenom":"damien","email":"tacitedamien444@gmail.com","mot_de_passe":"$2y$10$\/xHqk30ZVUVO9S3At0k3o.\/QOqHmuqWX7QZnMHThZR1cGMMQNDwLC"}]
+[{"id":0,"nom":"test","prenom":"test","email":"test@exemple.com","role":["ROLE_ADMIN"],"mot_de_passe":"$2y$10$4aAaz3YDPM\/rPZdUufR0f.SsOGYS3wdxG94zWzd3Wk7OiDsU4UPtO"}]
