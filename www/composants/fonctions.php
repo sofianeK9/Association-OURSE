@@ -125,54 +125,6 @@ function updatePassword($email, $newPassword) {
 }
 
 
-
-// Fonction pour envoyer un e-mail avec le nouveau mot de passe
-function envoyerEmail($to, $subject, $message)
-{
-    // Adresse email de l'expéditeur
-    $from = "votre@email.com";
-
-    // En-têtes de l'email
-    $headers = "From: $from" . "\r\n";
-    $headers .= "Reply-To: $from" . "\r\n";
-    $headers .= "Content-type: text/html; charset=UTF-8" . "\r\n";
-
-    // Envoi de l'email
-    if (mail($to, $subject, $message, $headers)) {
-        echo "Email envoyé avec succès.";
-    } else {
-        echo "Erreur lors de l'envoi de l'email.";
-    }
-}
-
-function envoyerNouveauMotDePasse($email, $nouveauMotDePasse)
-{
-    // Votre adresse email expéditeur
-    $from = "votre@email.com";
-
-    // Sujet de l'email
-    $subject = "Nouveau mot de passe";
-
-    // Contenu de l'email
-    $message = "Bonjour,\r\n\r\n";
-    $message .= "Vous avez demandé un nouveau mot de passe. Voici votre nouveau mot de passe :\r\n";
-    $message .= $nouveauMotDePasse . "\r\n\r\n";
-    $message .= "Nous vous recommandons de changer votre mot de passe après vous être connecté.\r\n\r\n";
-    $message .= "Cordialement,\r\nVotre équipe";
-
-    // En-têtes de l'email
-    $headers = "From: $from" . "\r\n";
-    $headers .= "Reply-To: $from" . "\r\n";
-    $headers .= "Content-type: text/plain; charset=UTF-8" . "\r\n";
-
-    // Envoi de l'email
-    if (mail($email, $subject, $message, $headers)) {
-        return true; // Email envoyé avec succès
-    } else {
-        return false; // Erreur lors de l'envoi de l'email
-    }
-}
-
 function suppression()
 {
 
