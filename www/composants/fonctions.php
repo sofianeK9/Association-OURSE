@@ -3,22 +3,15 @@
 function inscription()
 {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        if (!empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['email']) && !empty($_POST['mot_de_passe']) && !empty($_POST['mot_de_passe_verification']) && !empty($_POST['role'])) {
+        if (!empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['email']) && !empty($_POST['mot_de_passe']) && !empty($_POST['mot_de_passe_verification'])) {
             $nom = filter_input(INPUT_POST, "nom");
             $prenom = filter_input(INPUT_POST, "prenom");
             $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
-            $role = $_POST['role'];
             $motDePasse = filter_input(INPUT_POST, "mot_de_passe");
 
             // Validation de l'e-mail
             if (!$email) {
                 echo "Veuillez saisir une adresse e-mail valide.";
-                return;
-            }
-
-            // Validation du rôle
-            if ($role !== "ROLE_USER" && $role !== "ROLE_ADMIN") {
-                echo "Rôle invalide.";
                 return;
             }
 
@@ -51,7 +44,6 @@ function inscription()
                     'nom' => $nom,
                     'prenom' => $prenom,
                     "email" => $email,
-                    "role" => [$role],
                     "mot_de_passe" => $hashageMdp
                 );
 
@@ -237,3 +229,16 @@ function modificationProfil()
         }
     }
 }
+
+function ajoutActualites() {
+    if($_SERVER["REQUEST_METHOD"] == "POST") {
+
+
+        $titre = $_POST['titre'];
+        $image = $_POST['image'];
+        $description = $_POST['$description'];
+        $date = $_POST['date'];
+        $moment = $_POST['moment'];
+        $heure = $_POST['heure'];
+    }
+}   

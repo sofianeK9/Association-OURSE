@@ -1,10 +1,12 @@
-<?php 
+<?php
 require_once '../composants/fonctions.php';
 inscription();
 
-$page ="Inscription";
+$page = "Inscription";
 require_once '../composants/enTete.php';
 ?>
+
+<h1><?= $page ?></h1>
 
 <form method="post">
     <h2>Ajout de compte</h2>
@@ -17,12 +19,6 @@ require_once '../composants/enTete.php';
 
     <label for="email">Email</label>
     <input type="email" id="email" name="email" required />
-
-    <label for="role">Role</label>
-    <select name="role" id="role" required>
-        <option value="ROLE_USER">Utilisateur</option>
-        <option value="ROLE_ADMIN">Administrateur</option>
-    </select>
 
     <label for="mot_de_passe">Mot de passe</label>
     <input type="password" id="mot_de_passe" name="mot_de_passe" required />
