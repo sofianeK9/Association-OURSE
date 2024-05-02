@@ -46,6 +46,27 @@ $(document).ready(function() {
         $('#popup').hide();
         $(this).hide();
     });
+
+
+    $(".particulier-content").hide();
+    $(".particulier-content:first").show();
+    $(".particulier-sommaire li:first a").addClass("active-link");
+
+    // Gestion des clics sur les liens du sommaire
+    $(".particulier-sommaire a").click(function(){
+        // Cacher tous les contenus
+        $(".particulier-content").hide();
+        // Réinitialiser la taille de la police de tous les liens du sommaire
+        $(".particulier-sommaire a").removeClass("active-link");
+        // Récupérer l'ID de la section à afficher
+        var target = $(this).attr("href");
+        // Afficher la section correspondante
+        $(target).show();
+        // Augmenter la taille de police du lien actuel du sommaire
+        $(this).addClass("active-link");
+        // Empêcher le comportement par défaut du lien
+        return false;
+    });
 });
 
 function toggleHeure() {
