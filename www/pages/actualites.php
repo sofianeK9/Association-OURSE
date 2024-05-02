@@ -2,21 +2,13 @@
 require_once '../composants/fonctions.php';
 ajoutActualites();
 require_once '../composants/enTete.php';
-
+$page = "Ajouter une actualité";
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Actualités</title>
-</head>
-
-<body>
-    <h2>Saisir une fiche : Gestion des évènements</h2>
     <form method="post" enctype="multipart/form-data">
+
+    <h2><?= $page ?></h2>
+
         <label for="titre">Titre de la fiche</label>
         <input type="text" id="titre" name="titre">
 

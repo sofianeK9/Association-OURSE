@@ -1,6 +1,6 @@
 
 <?php 
-$page ="carte";
+$page ="CARTE";
 require_once '../composants/enTete.php'; ?>
 
     <h1><?= $page ?></h1>
