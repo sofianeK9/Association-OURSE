@@ -13,8 +13,10 @@ require_once '../composants/enTete.php'; ?>
     } else {
 
             foreach($actualites as $actualite) {
+                echo "<div class='miniature-actualite'>";
                 echo "<div class='miniature' data-titre='" . $actualite["titre"] . "' data-image='" . $actualite["image"] . "' data-description='" . $actualite["description"] . "' data-date='" . $actualite["date"] . "' data-heure='" . $actualite["heure"] . "' data-lien='" . $actualite["lien"] . "' data-ville='" . $actualite["ville"] . "' data-code-postal='" . $actualite["code-postal"] . "' data-complement-adresse='" . $actualite["complement-adresse"] . "'>";
-                echo "<img src='" . $actualite["image"] . "' alt='" . $actualite["titre"] . "' style='width:100px;height:100px;'>";
+                echo "<h2>" . $actualite['titre'] . "</h2><img src='" . $actualite["image"] . "' alt='" . $actualite["titre"] . "' style='width:100px;height:100px;'>";
+                echo "</div>";
                 echo "</div>";
             }
     }
