@@ -258,10 +258,15 @@ function ajoutActualites()
                 $complementAdresse = $_POST['complement-adresse'];
                 $lien = $_POST['lien'];
 
-                $id = 0;
+                $jsonData = file_get_contents("../../donnees/actualites.json");
+                $actualites = json_decode($jsonData, true);
+                $dernierId = count($actualites) > 0 ? $actualites[count($actualites) - 1]['id'] : 0;
+
+                
+                $id = $dernierId + 1;
 
                 $actualite = [
-                    'id' => $id++,
+                    'id' => $id,
                     'titre' => $titre,
                     'image' => $cheminFichierImage, 
                     'description' => $description,
@@ -273,8 +278,6 @@ function ajoutActualites()
                     'complement_adresse' => $complementAdresse,
                     'lien' => $lien
                 ];
-
-                $actualites = file_exists("../../donnees/actualites.json") ? json_decode(file_get_contents("../../donnees/actualites.json"), true) : [];
 
                 $actualites[] = $actualite;
 
