@@ -18,7 +18,7 @@ require_once '../composants/enTete.php';
             echo "<li>Nom : " . $utilisateur['nom'] . ", Email : " . $utilisateur['email'] . " ";
             echo "<form method='post' class='suppression-button'>";
             echo "<input type='hidden' name='id' value='$cle'>";
-            echo "<button type='submit'>Supprimer</button>";
+            echo "<button type='submit' class='suppression-bouton'>Supprimer</button>";
             echo "</form></li>";
         }
     }

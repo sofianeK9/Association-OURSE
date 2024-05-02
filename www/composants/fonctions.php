@@ -241,6 +241,8 @@ function ajoutActualites()
         $moment = $_POST['moment'];
         $heure = isset($_POST['heure']) ? $_POST['heure'] : null;
         $ville = $_POST['ville'];
+        $ville = $_POST['code-postal'];
+        $ville = $_POST['complement-adresse'];
         $lien = $_POST['lien'];
 
         

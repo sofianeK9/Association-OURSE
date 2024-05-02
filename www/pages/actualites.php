@@ -42,6 +42,12 @@ require_once '../composants/enTete.php';
         <label for="ville">Ville</label>
         <input type="text" id="ville" name="ville">
 
+        <label for="code-postal">Code postal</label>
+        <input type="text" id="code-postal" name="code-postal">
+
+        <label for="complement-adresse">Complément d'adresse</label>
+        <input type="text" id="complement-adresse" name="complement-adresse">
+
         <label for="lien">Lien pour avoir plus d'information</label>
         <input type="text" id="lien" name="lien">
 

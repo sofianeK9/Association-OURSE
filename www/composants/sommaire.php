@@ -39,4 +39,3 @@ if (isset($_POST['deconnexion'])) {
         <?php endif; ?>
     </nav>
 </header>
-<!-- >>>>>>> 522cadd8f0bab9f12ead08d04164bbc4f0ab0f92 -->
