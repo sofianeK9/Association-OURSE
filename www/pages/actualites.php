@@ -16,7 +16,7 @@ require_once '../composants/enTete.php';
 
 <body>
     <h2>Saisir une fiche : Gestion des évènements</h2>
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         <label for="titre">Titre de la fiche</label>
         <input type="text" id="titre" name="titre">
 

@@ -1,5 +1,7 @@
 <?php require_once '../composants/donneesRecup.php';
 
+use Symfony\Component\Validator\Constraints\Unique;
+
 function inscription()
 {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -234,37 +236,70 @@ function ajoutActualites()
 {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-        $titre = $_POST['titre'];
-        $image = $_POST['image'];
-        $description = $_POST['description'];
-        $date = $_POST['date'];
-        $moment = $_POST['moment'];
-        $heure = isset($_POST['heure']) ? $_POST['heure'] : null;
-        $ville = $_POST['ville'];
-        $ville = $_POST['code-postal'];
-        $ville = $_POST['complement-adresse'];
-        $lien = $_POST['lien'];
+        // Récupérer le fichier téléchargé
+        $fichierImage = $_FILES['image'];
+        $erreur = "";
 
-        
-        $actualite = [
-            'titre' => $titre,
-            'image' => $image,
-            'description' => $description,
-            'date' => $date,
-            'moment' => $moment,
-            'heure' => $heure,
-            'ville' => $ville,
-            'lien' => $lien
-        ];
+        // Vérifier si le fichier a été téléchargé avec succès
+        if ($fichierImage['error'] == UPLOAD_ERR_OK) {
 
-        $actualites = file_exists("../../donnees/fichiers.json") ? json_decode(file_get_contents("../../donnees/fichiers.json"), true) : [];
+            // Chemin de destination pour l'image téléchargée
+            $cheminDossierImages = '../../img/';
 
-        $actualites[] = $actualite;
+            // Générer un nom de fichier unique pour éviter les conflits
+            $nomImageUnique = uniqid() . '_' . $fichierImage['name'];
 
-        file_put_contents("../../donnees/fichiers.json", json_encode($actualites, JSON_PRETTY_PRINT));
+            // Chemin complet du fichier téléchargé
+            $cheminFichierImage = $cheminDossierImages . $nomImageUnique;
 
-        
-        echo "L'actualité a été ajoutée avec succès.";
-        // header("Location: page-de-redirection.php");
+            // Déplacer le fichier téléchargé vers le dossier de destination
+            if (move_uploaded_file($fichierImage['tmp_name'], $cheminFichierImage)) {
+
+                // Récupérer les autres données du formulaire
+                $titre = $_POST['titre'];
+                $description = $_POST['description'];
+                $date = $_POST['date'];
+                $moment = $_POST['moment'];
+                $heure = isset($_POST['heure']) ? $_POST['heure'] : null;
+                $ville = $_POST['ville'];
+                $codePostal = $_POST['code-postal'];
+                $complementAdresse = $_POST['complement-adresse'];
+                $lien = $_POST['lien'];
+
+                $id = uniqid();
+
+                $actualite = [
+                    'id' => $id,
+                    'titre' => $titre,
+                    'image' => $cheminFichierImage, 
+                    'description' => $description,
+                    'date' => $date,
+                    'moment' => $moment,
+                    'heure' => $heure,
+                    'ville' => $ville,
+                    'code_postal' => $codePostal,
+                    'complement_adresse' => $complementAdresse,
+                    'lien' => $lien
+                ];
+
+                $actualites = file_exists("../../donnees/actualites.json") ? json_decode(file_get_contents("../../donnees/actualites.json"), true) : [];
+
+                $actualites[] = $actualite;
+
+                file_put_contents("../../donnees/actualites.json", json_encode($actualites, JSON_PRETTY_PRINT));
+
+                echo "L'actualité a été ajoutée avec succès.";
+                header("Location: ./index.php");
+
+            } else {
+                $erreur = "Erreur lors du téléchargement de l'image.";
+            }
+        } else {
+            $erreur = "Erreur lors du téléchargement de l'image.";
+        }
+
+        if ($erreur != "") {
+            echo $erreur;
+        }
     }
 }
