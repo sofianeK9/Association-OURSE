@@ -6,7 +6,7 @@ $(document).ready(function() {
     });
 
 
-    $(".delete-button").click(function(){
+    $(".suppression-button").click(function(){
         if (confirm("Êtes-vous sûr de vouloir supprimer cet utilisateur ?")) {
             $(this).closest("form").submit();
         }
@@ -35,13 +35,13 @@ $(document).ready(function() {
             '<p>Adresse complémentaire: ' + adresseComplementaire + '</p>' + 
             '<a href="' + lien + '">Lien vers l\'actualité</a>';
 
-        // Affichage de la pop-up
-        $('#popup').html(popupContent);
+
+            $('#popup').html(popupContent);
         $('#popup').show();
         $('#overlay').show();
     });
 
-    // Fermeture de la pop-up lors du clic sur l'overlay
+
     $('#overlay').click(function() {
         $('#popup').hide();
         $(this).hide();
@@ -50,21 +50,17 @@ $(document).ready(function() {
 
     $(".particulier-content").hide();
     $(".particulier-content:first").show();
-    $(".particulier-sommaire li:first a").addClass("active-link");
 
-    // Gestion des clics sur les liens du sommaire
+
     $(".particulier-sommaire a").click(function(){
-        // Cacher tous les contenus
+
         $(".particulier-content").hide();
-        // Réinitialiser la taille de la police de tous les liens du sommaire
-        $(".particulier-sommaire a").removeClass("active-link");
-        // Récupérer l'ID de la section à afficher
+
+
         var target = $(this).attr("href");
-        // Afficher la section correspondante
+
         $(target).show();
-        // Augmenter la taille de police du lien actuel du sommaire
-        $(this).addClass("active-link");
-        // Empêcher le comportement par défaut du lien
+
         return false;
     });
 });

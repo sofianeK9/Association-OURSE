@@ -53,7 +53,6 @@ function inscription()
 
                 file_put_contents("../../donnees/utilisateurs.json", json_encode($utilisateurs));
 
-                session_start();
                 $_SESSION['connecte'] = true;
                 $_SESSION['id'] = count($utilisateurs);
             } elseif ($motDePasse !== $motDePasseVerification) {

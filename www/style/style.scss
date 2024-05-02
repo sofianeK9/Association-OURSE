@@ -172,11 +172,12 @@ form {
 
   .map-container {
     display: flex;
+    justify-content: center;
   }
   
   /* Style de l'iframe */
   .map-iframe {
-    width: 70%; 
+    width: 90%; 
     height: 600px;
   }
 
@@ -249,9 +250,7 @@ form {
     display: none;
 }
 
-.active-link {
-    font-size: 18px;
-}
+
 
 
 .particulier-contenair {
@@ -300,4 +299,8 @@ form {
     border-radius: 20px;
     background-color: white;
     text-transform: uppercase;
+}
+
+.particulier-paragraphe {
+    line-height: 1.5;
 }

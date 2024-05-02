@@ -3,7 +3,7 @@ require_once '../composants/fonctions.php';
 modificationProfil();
 
 require_once '../composants/enTete.php';
-
+$page = "PROFIL";
 $mailExistant = "false";
 ?>
 
@@ -13,15 +13,15 @@ $mailExistant = "false";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profil</title>
+    <title><?= $page ?></title>
 </head>
 
 <body>
 
 
-<h2></h2>
-
 <form action="" method="POST">
+
+    <h2><?= $page ?></h2>
 
     <label for="email">Nouvelle adresse email :</label>
     <input type="email" id="email" name="email" value=""required>
