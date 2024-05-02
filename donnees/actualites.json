@@ -1,0 +1,15 @@
+[
+    {
+        "id": "663367c13584c",
+        "titre": "gestion des evenements",
+        "image": "..\/..\/img\/663367c1357ea_Bienvenue.jpg",
+        "description": "test",
+        "date": "2025-05-05",
+        "moment": "journee",
+        "heure": "",
+        "ville": "test",
+        "code_postal": "test",
+        "complement_adresse": "test",
+        "lien": "test"
+    }
+]
