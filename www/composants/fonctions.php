@@ -236,26 +236,19 @@ function ajoutActualites()
 {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-        // Récupérer le fichier téléchargé
         $fichierImage = $_FILES['image'];
         $erreur = "";
 
-        // Vérifier si le fichier a été téléchargé avec succès
         if ($fichierImage['error'] == UPLOAD_ERR_OK) {
 
-            // Chemin de destination pour l'image téléchargée
             $cheminDossierImages = '../../img/';
 
-            // Générer un nom de fichier unique pour éviter les conflits
             $nomImageUnique = uniqid() . '_' . $fichierImage['name'];
 
-            // Chemin complet du fichier téléchargé
             $cheminFichierImage = $cheminDossierImages . $nomImageUnique;
 
-            // Déplacer le fichier téléchargé vers le dossier de destination
             if (move_uploaded_file($fichierImage['tmp_name'], $cheminFichierImage)) {
 
-                // Récupérer les autres données du formulaire
                 $titre = $_POST['titre'];
                 $description = $_POST['description'];
                 $date = $_POST['date'];
@@ -266,10 +259,10 @@ function ajoutActualites()
                 $complementAdresse = $_POST['complement-adresse'];
                 $lien = $_POST['lien'];
 
-                $id = uniqid();
+                $id = 0;
 
                 $actualite = [
-                    'id' => $id,
+                    'id' => $id++,
                     'titre' => $titre,
                     'image' => $cheminFichierImage, 
                     'description' => $description,
