@@ -38,6 +38,4 @@ $mailExistant = "false";
     <input type="submit" value="Modifier">
 </form>
 
-</body>
-
-</html>
+<?php include_once '../composants/footer.php' ?>

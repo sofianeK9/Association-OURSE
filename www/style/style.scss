@@ -1,7 +1,16 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
 body {
     background-color:#F8F8F8;
     font-family: "Roboto", sans-serif;
 
+}
+
+main {
+    padding: 20px;
 }
 
 a {
@@ -17,7 +26,15 @@ a {
 
 h1 {
     font-size: 4rem;
-    font-weight: 800;
+    font-weight: 700;
+    color: #525C68;
+    margin-left: 35px;
+    padding: 20px 0px;
+    letter-spacing: 0.3em;
+}
+
+h2 {
+    text-transform: uppercase;
     color: #525C68;
 }
 
@@ -50,9 +67,9 @@ h1 {
     display: none; /* Masquer le menu déroulant par défaut */
     position: absolute; /* Positionnement absolu par rapport au conteneur parent */
     top: 100%; /* Décalage vers le bas */
-    left: 0; /* Alignement à gauche */
+    left: -40%; /* Alignement à gauche */
     background-color: #f9f9f9;
-    min-width: 160px;
+    min-width: 260px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
@@ -67,12 +84,20 @@ h1 {
     text-decoration: none;
     display: block;
     color: #AC2B94;
+    transition-property: color;
+    transition-duration: 0.5s;
+    &:hover {
+        color: #DD8ECE;
+    }
 }
 
 .dropdown-content a:hover {
     background-color: #fafafa;
 }
 
+.show {
+    display: flex;
+}
 
 
 
@@ -80,9 +105,40 @@ h1 {
 
 
 
+.accueil-container {
+    display: flex;
+    max-width: 100%;
+    padding: 20px;
+    margin-bottom: 30px;
+}
 
+.accueil-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #525C68;
+    h2 {
+        font-size: 3em;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+    }
 
+    p {
+        font-size: 1.2em;
+    }
 
+    img {
+        cursor: pointer;
+
+        &:hover {
+            box-shadow: 0px 0px 15px #525C68;
+        }
+    }
+
+    strong {
+        color:#818147;
+    }
+}
 
 
 
@@ -146,7 +202,8 @@ form {
   button {
     padding: 14px 20px;
     margin: 8px 0;
-    background-color: white;
+    background-color: #667078;
+    color: white;
     border: none;
     border-radius: 12px;
     cursor: pointer;
@@ -160,7 +217,7 @@ form {
   /* Style des boutons au survol */
   input[type="submit"]:hover,
   button:hover {
-    background-color: rgb(228, 228, 228);
+    background-color: #788594;
   }
   
 
@@ -189,18 +246,26 @@ form {
 
 
 
-.miniature-actualite {
+.actualite-container {
     display: flex;
-    flex-direction: column;
-    max-width: 200px;
+    flex-wrap: wrap;
+    gap: 50px;
+    width: 100%;
 }
 
-  /* Style pour les miniatures */
 .miniature {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 200px;
     margin: 10px;
+    padding: 10px;
     cursor: pointer;
+    border-radius: 20px;
+    background-color:#DFDF8A;
 }
+
 
 /* Style pour la pop-up */
 #overlay {
@@ -215,19 +280,30 @@ form {
 }
 
 #popup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #fff;
+    background-color:#DFDF8A;
     padding: 20px;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    max-width: 80%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    width: 80%;
     max-height: 80%;
     overflow-y: auto;
-    display: none;
-    z-index: 1000; /* Assure que la pop-up soit au-dessus de l'overlay */
+    z-index: 1000;
+}
+
+#popup h2 {
+    width: 90%;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: white;
+    text-transform: uppercase;
 }
 
 #popup img {
@@ -236,14 +312,23 @@ form {
 }
 
 #popup p {
-    margin: 0 0 10px;
+    margin: 0;
+    text-align: center; /* Centrer le texte */
 }
 
-#popup a {
-    color: blue;
-    text-decoration: underline;
+#popup .description {
+    font-size: 18px; /* Taille de police plus grande pour la description */
+    margin-bottom: 20px; /* Marge plus grande en bas de la description */
 }
 
+#popup .infos {
+    text-align: center; /* Centrer le texte des informations */
+}
+
+#popup .infos p {
+    display: inline-block; /* Mettre les éléments des informations sur la même ligne */
+    margin-right: 10px; /* Espacement entre les éléments */
+}
 
 
 .particulier-content {
@@ -256,6 +341,7 @@ form {
 .particulier-contenair {
     display: flex;
     width: 100%;
+
 }
 
 .colonne-gauche {
@@ -277,6 +363,11 @@ form {
     border-left: 2px solid black;
     a {
         font-size: 1.2em;
+
+        &.active {
+            font-size: 1.6em;
+            text-decoration: underline;
+        }
     }
 }
 
@@ -285,8 +376,9 @@ form {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    gap: 30px;
     width: 90%;
-    padding: 5px 20px;
+    padding:20px;
     margin-bottom: 20px;
     border-radius: 30px;
     background-color: #DFDF8A;
@@ -303,4 +395,105 @@ form {
 
 .particulier-paragraphe {
     line-height: 1.5;
+}
+
+
+
+.liste-suppression {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.liste-suppression_element {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 40%;
+    padding: 10px;
+    border: 2px solid #818147;
+    border-radius: 20px;
+
+        form {
+            margin: 0;
+            padding: 0;
+        }
+}
+
+
+
+
+footer {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+
+
+
+
+
+@media only screen and (max-width: 768px) {
+
+    main {
+        padding: 5px;
+    }
+
+    h1 {
+        font-size: 3.5em;
+    }
+
+    header {
+        flex-direction: column;
+    }
+    
+    .sommaire {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .accueil-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .accueil-content {
+        max-width: 80%;
+        h2 {
+            font-size: 2em;
+            letter-spacing: 0;
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+            font-size: 1em;
+        }
+    }
+
+    .actualite-container {
+        justify-content: center;
+    }
+
+    .particulier-contenair {
+        flex-direction: column-reverse; /* Passage à column */
+    }
+
+    .particulier-sommaire {
+        border-left: none;
+    }
+    .colonne-gauche {
+        width: 90%;
+    }
+    
+    .colonne-droite {
+        width: 90%;
+    }
+
+    #popup .description {
+        overflow-y: auto;
+    }
+    
 }

@@ -12,3 +12,5 @@ true&amp;allowEdit=false&amp;moreControl=true&amp;searchControl=null&amp;tilelay
 mp;embedControl=null&amp;datalayersControl=true&amp;onLoadPanel=databrowser&amp;captionBar=fa
 lse"></iframe>
 </div>
+
+<?php include_once '../composants/footer.php' ?>

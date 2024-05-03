@@ -19,7 +19,7 @@ require_once '../composants/enTete.php'; ?>
 
         <div class="particulier-content" id="abonnement">
             <h2 class="particulier-titre">Souscrire un abonnement</h2>
-            <p class="particulier-paragraphe">Afin de recevoir régulièrement des OURSE dans votre compte d'échange habituel Vous pouvez utiliser le <a href="https://framaforms.org/souscription-mensuel-d-ourse-1605090532">formulaire de souscription en ligne</a> ou le bulletin de souscription d'Ourse sur internet par virement ponctuel ou régulier.<br />
+            <p class="particulier-paragraphe">Afin de recevoir régulièrement des OURSE dans votre compte d'échange habituel Vous pouvez utiliser le <a href="https://framaforms.org/souscription-mensuel-d-ourse-1605090532" target="_blank">formulaire de souscription en ligne</a> ou le bulletin de souscription d'Ourse sur internet par virement ponctuel ou régulier.<br />
             Souscrivez à l'abonnement em remplissant <a href="../composants/telechargerPDF.php?nom_fichier=Bulletin_de_souscription_dOurse_sur_internetpar_virement_ponctuel_ou_rgulier.pdf">ce formulaire téléchargeable</a>.
             </p>
         </div>
@@ -61,10 +61,12 @@ Si vous avez repéré un commerce près de chez vous qui souhaiterait devenir co
     </div>
     <div class="colonne-droite">
         <ul class="particulier-sommaire">
-            <li><a href="#fonctionnement" class="active-link">Comment cela fonctionne-t-il ?</a></li>
+            <li><a href="#fonctionnement" class="active">Comment cela fonctionne-t-il ?</a></li>
             <li><a href="#abonnement">Souscrire à l'abonnement</a></li>
             <li><a href="#prestataire">Les prestataires</a></li>
             <li><a href="#echange">Les comptoirs d'échange</a></li>
         </ul>
     </div>
 </div>
+
+<?php include_once '../composants/footer.php' ?>

@@ -47,6 +47,4 @@ $page = "Ajouter une actualité";
 
     </form>
 
-</body>
-
-</html>
+<?php include_once '../composants/footer.php' ?>

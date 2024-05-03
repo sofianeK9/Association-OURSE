@@ -2,11 +2,10 @@
 require_once '../composants/fonctions.php';
 inscription();
 
-$page = "Inscription";
+$page = "Ajout d'un compte";
 require_once '../composants/enTete.php';
 ?>
 
-<h1><?= $page ?></h1>
 
 <form method="post">
     <h2>Ajout de compte</h2>
@@ -28,3 +27,5 @@ require_once '../composants/enTete.php';
 
     <input type="submit" value="Ajouter">
 </form>
+
+<?php include_once '../composants/footer.php' ?>

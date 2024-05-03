@@ -29,8 +29,10 @@ Les OURSE obtenues peuvent ensuite être utilisées comme dépense personnelle d
 
     <div class="colonne-droite">
         <ul class="particulier-sommaire">
-            <li><a href="#fonctionnement" class="active-link">Comment cela fonctionne-t-il ?</a></li>
+            <li><a href="#fonctionnement" class="active">Comment cela fonctionne-t-il ?</a></li>
             <li><a href="#correction">Corriger mes informations</a></li>
         </ul>
     </div>
 </div>
+
+<?php include_once '../composants/footer.php' ?>

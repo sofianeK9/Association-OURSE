@@ -6,7 +6,7 @@ require_once '../composants/enTete.php';
 ?>
 
     <h2>Liste des utilisateurs</h2>
-    <ul>
+    <div class='liste-suppression'>
     <?php
     $jsonData = file_get_contents('../../donnees/utilisateurs.json');
     $utilisateurs = json_decode($jsonData, true);
@@ -15,16 +15,14 @@ require_once '../composants/enTete.php';
         echo "<li>Erreur lors de la lecture du fichier JSON.</li>";
     } else {
         foreach ($utilisateurs as $cle => $utilisateur) {
-            echo "<li>Nom : " . $utilisateur['nom'] . ", Email : " . $utilisateur['email'] . " ";
+            echo "<div class='liste-suppression_element'>Nom : " . $utilisateur['nom'] . ", Email : " . $utilisateur['email'] . " ";
             echo "<form method='post' class='suppression-button'>";
             echo "<input type='hidden' name='id' value='$cle'>";
             echo "<button type='submit'>Supprimer</button>";
-            echo "</form></li>";
+            echo "</form></div>";
         }
     }
 ?>
 
-    </ul>
-</body>
-
-</html>
+</div>
+    <?php include_once '../composants/footer.php' ?>

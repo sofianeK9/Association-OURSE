@@ -13,7 +13,7 @@ $(document).ready(function() {
     });
 
 
-    $('.miniature').click(function() {
+    $('.actualite-popup').click(function() {
         var titre = $(this).data('titre');
         var image = $(this).data('image');
         var description = $(this).data('description');
@@ -25,18 +25,20 @@ $(document).ready(function() {
         var adresseComplementaire = $(this).data('complement-adresse');
 
         var popupContent = 
-            '<h2>' + titre + '</h2>' + 
-            '<img src="' + image + '" alt="' + titre + '" style="width:200px;height:200px;">' + 
-            '<p>' + description + '</p>' + 
-            '<p>Date: ' + date + '</p>' + 
-            '<p>Heure: ' + heure + '</p>' + 
-            '<p>Ville: ' + ville + '</p>' + 
-            '<p>Code postal: ' + codePostal + '</p>' + 
-            '<p>Adresse complémentaire: ' + adresseComplementaire + '</p>' + 
-            '<a href="' + lien + '">Lien vers l\'actualité</a>';
+        '<h2>' + titre + '</h2>' + 
+        '<img src="' + image + '" alt="' + titre + '">' + 
+        '<div class="description">' + description + '</div>' + 
+        '<div class="infos">' +
+            '<p>Le ' + date + 
+             heure + 
+            ' à ' + ville  + 
+            ' - ' + codePostal +
+            ' - ' + adresseComplementaire + '</p>' +
+        '</div>' + 
+        '<a href="' + lien + '">Lien vers l\'actualité</a>';
 
 
-            $('#popup').html(popupContent);
+        $('#popup').html(popupContent);
         $('#popup').show();
         $('#overlay').show();
     });
@@ -52,18 +54,25 @@ $(document).ready(function() {
     $(".particulier-content:first").show();
 
 
-    $(".particulier-sommaire a").click(function(){
-
+    $(".particulier-sommaire a, .sommaire a").click(function(){
+        // Retirer la classe "active" de tous les liens
+        $(".particulier-sommaire a").removeClass("active");
+        // Cacher tous les contenus
         $(".particulier-content").hide();
-
-
+    
+        // Récupérer la cible du lien cliqué
         var target = $(this).attr("href");
-
+    
+        // Afficher le contenu ciblé
         $(target).show();
-
+    
+        // Ajouter la classe "active" au lien cliqué
+        $(this).addClass("active");
         return false;
     });
+
 });
+
 
 function toggleHeure() {
     var moment = $("#moment");
@@ -75,3 +84,4 @@ function toggleHeure() {
         heureContainer.hide();
     }
 }
+

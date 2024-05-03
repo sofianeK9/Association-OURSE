@@ -10,12 +10,13 @@ if (isset($_POST['deconnexion'])) {
 
 <header class="header">
     <img src="../../img/logo.jpg" alt="logo" title="logo">
+
     <nav class="sommaire">
         <a href="../pages/index.php">Accueil</a>
         <a href="../pages/carte.php">La Carte</a>
-        <div class="dropdown">
-            <a href="">Adhésion ▼</a>
-            <div class="dropdown-content">
+        <div class="dropdown" id="dropdown">
+            <a href="#" id="dropdown-trigger">Adhésion ▼</a>
+            <div class="dropdown-content" id="dropdown-content">
                 <a href="../pages/particulier.php">Particulier</a>
                 <a href="../pages/professionnel.php">Professionnel</a>
             </div>
@@ -24,9 +25,9 @@ if (isset($_POST['deconnexion'])) {
             <a href="../pages/connexion.php">Se Connecter</a>
         <?php endif; ?>
         <?php if (isset($_SESSION["connecte"])) : ?>
-        <div class="dropdown">
-                <a href="">Administrateur ▼</a>
-                <div class="dropdown-content">
+        <div class="dropdown"  id="dropdown">
+                <a href="" id="dropdown-trigger">Administrateur ▼</a>
+                <div class="dropdown-content"  id="dropdown-content">
             <a href="../pages/inscription.php">Ajouter un compte</a>
             <a href="../pages/profil.php">Profil</a>
             <a href="../pages/listeUtilisateurs.php">Liste des utilisateurs</a>
@@ -37,5 +38,7 @@ if (isset($_POST['deconnexion'])) {
                 </div>
         </div>
         <?php endif; ?>
+        
     </nav>
 </header>
+<main>
