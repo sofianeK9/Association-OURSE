@@ -30,7 +30,7 @@ if ($actualites === null) {
         echo "<div class='actualite-popup' data-titre='" . $actualite["titre"] . "' data-image='" . $actualite["image"] . "' data-description='" . $actualite["description"] . "' data-date='" . $actualite["date"] . "' data-heure='" . $actualite["heure"] . "' data-lien='" . $actualite["lien"] . "' data-ville='" . $actualite["ville"] . "' data-code-postal='" . $actualite["code_postal"] . "' data-complement-adresse='" . $actualite["complement_adresse"] . "'>";
         echo "<div class='miniature $class'>
                 <h2>".$actualite["titre"]."</h2>
-                <img src='" . $actualite["image"] . "' alt='" . $actualite["titre"] . "' style='width:100px;'>
+                <img src='../img/" . $actualite["image"] . "' alt='" . $actualite["titre"] . "' style='width:100px;'>
                <p>".$description_abbreviated."</p>
                <span>Date: ".$actualite["date"]."</span>
               </div>";

@@ -270,10 +270,13 @@ form {
     transition-property: background-color;
     transition-duration: 0.5s;
     &:hover {
-        background-color:#eeeeab;
+        background-color:#DFDF8A;
     }
     &.odd {
         background-color:#DFDF8A;
+        &:hover {
+            background-color: white;
+        }
     }
 }
 
@@ -490,7 +493,7 @@ footer a {
     }
 
     h1 {
-        font-size: 3.5em;
+        font-size: 1em;
     }
 
     header {
@@ -532,6 +535,7 @@ footer a {
     .particulier-sommaire {
         border-left: none;
     }
+
     .colonne-gauche {
         width: 90%;
     }
