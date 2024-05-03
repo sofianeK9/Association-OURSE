@@ -23,14 +23,20 @@ if ($actualites === null) {
     echo '<li>erreur lors de la récupération des actualités</li>';
 } else {
 
-    foreach ($actualites as $actualite) {
+    foreach ($actualites as $index => $actualite) {
+        $class = ($index % 2 == 0) ? 'odd' : '';
+        $description_abbreviated = substr($actualite["description"], 0, 50) . '...'; // Extrait les 20 premières lettres de la description
+    
         echo "<div class='actualite-popup' data-titre='" . $actualite["titre"] . "' data-image='" . $actualite["image"] . "' data-description='" . $actualite["description"] . "' data-date='" . $actualite["date"] . "' data-heure='" . $actualite["heure"] . "' data-lien='" . $actualite["lien"] . "' data-ville='" . $actualite["ville"] . "' data-code-postal='" . $actualite["code_postal"] . "' data-complement-adresse='" . $actualite["complement_adresse"] . "'>";
-        echo "<div class='miniature'>
-        <h2>".$actualite["titre"]."</h2>
-        <img src='" . $actualite["image"] . "' alt='" . $actualite["titre"] . "' style='width:100px;'>
-        </div>";
+        echo "<div class='miniature $class'>
+                <h2>".$actualite["titre"]."</h2>
+                <img src='" . $actualite["image"] . "' alt='" . $actualite["titre"] . "' style='width:100px;'>
+               <p>".$description_abbreviated."</p>
+               <span>Date: ".$actualite["date"]."</span>
+              </div>";
         echo "</div>";
     }
+    
 }
 
 ?>

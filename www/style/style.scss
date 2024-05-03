@@ -257,14 +257,26 @@ form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
-    height: 200px;
+    justify-content: space-between;
+    width: 250px;
+    height: 220px;
     margin: 10px;
     padding: 10px;
     cursor: pointer;
-    border-radius: 20px;
-    background-color:#DFDF8A;
+    border-radius: 5px;
+
+    background-color: white;
+    border: 6px solid #DFDF8A;
+    transition-property: background-color;
+    transition-duration: 0.5s;
+    &:hover {
+        background-color:#eeeeab;
+    }
+    &.odd {
+        background-color:#DFDF8A;
+    }
 }
+
 
 
 /* Style pour la pop-up */
@@ -426,9 +438,45 @@ form {
 
 footer {
     display: flex;
-    justify-content: space-evenly;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background-color:#525C68;
+    color: white;
 }
 
+footer p {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    text-align: center;
+}
+
+footer p a {
+    color: white;
+    text-decoration: none;
+    padding: 5px;
+
+}
+
+footer p span {
+    font-style: italic;
+}
+
+footer a {
+    padding: 15px;
+    color: white;
+    text-decoration: none;
+    background-color: #667078;
+    transition-property: background-color color;
+    transition-duration: 0.5s;
+    &:hover {
+        color: rgb(0, 0, 0);
+        background-color: #8d959c;
+    }
+}
 
 
 
@@ -496,4 +544,8 @@ footer {
         overflow-y: auto;
     }
     
+
+    footer {
+        flex-direction: column;
+    }
 }
